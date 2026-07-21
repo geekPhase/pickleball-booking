@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Court Reserve</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1 class="brand">Court Reserve · Admin</h1>
+  <p class="tagline">Confirm payments &middot; manage bookings</p>
+</header>
+
+<main>
+  <div class="login-gate" id="login-gate">
+    <label for="admin-pass">Admin password</label>
+    <input type="password" id="admin-pass" placeholder="Password">
+    <div class="status-msg error" id="login-error"></div>
+    <div class="form-actions" style="margin-top:14px;">
+      <button class="primary" id="login-btn" style="width:100%;">Log in</button>
+    </div>
+  </div>
+
+  <div id="dashboard" style="display:none;">
+    <div class="controls-bar">
+      <div>
+        <label for="filter-date">Date</label>
+        <input type="date" id="filter-date">
+      </div>
+      <div>
+        <label for="filter-status">Status</label>
+        <select id="filter-status" style="font-family:'IBM Plex Mono',monospace; padding:8px; border-radius:8px; border:2px solid var(--court-blue);">
+          <option value="all">All</option>
+          <option value="pending" selected>Pending</option>
+          <option value="confirmed">Confirmed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+    </div>
+
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Contact</th>
+          <th>Court</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Total</th>
+          <th>Proof</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="admin-rows"></tbody>
+    </table>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

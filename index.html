@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Court Reserve — Pickleball Court Booking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1 class="brand">Court Reserve</h1>
+  <p class="tagline">3 courts &middot; book by the hour &middot; pay by GCash</p>
+</header>
+
+<main>
+  <div class="controls-bar">
+    <div>
+      <label for="date-picker">Date</label>
+      <input type="date" id="date-picker">
+    </div>
+    <div class="legend">
+      <span><span class="swatch available"></span>Available</span>
+      <span><span class="swatch selected"></span>Selected</span>
+      <span><span class="swatch pending"></span>Pending payment</span>
+      <span><span class="swatch confirmed"></span>Booked</span>
+      <span><span class="swatch past"></span>Past</span>
+    </div>
+  </div>
+
+  <div id="grid-wrapper">
+    <div id="loading-msg" style="font-family:'IBM Plex Mono',monospace;">Loading schedule…</div>
+    <div class="schedule-grid" id="schedule-grid" style="display:none;"></div>
+  </div>
+
+  <div class="selection-bar" id="selection-bar" style="display:none;">
+    <div class="summary" id="selection-summary"></div>
+    <div>
+      <button class="secondary" id="clear-selection-btn">Clear</button>
+      <button class="primary" id="book-selected-btn">Book Selected Slot(s)</button>
+    </div>
+  </div>
+</main>
+
+<!-- Booking modal -->
+<div class="modal-overlay hidden" id="booking-modal-overlay">
+  <div class="modal">
+    <h2 id="modal-step-title">Your details</h2>
+    <div class="booking-summary" id="modal-booking-summary"></div>
+
+    <!-- Step 1: contact details -->
+    <div id="step-details">
+      <label for="cust-name">Full name</label>
+      <input type="text" id="cust-name" placeholder="Juan Dela Cruz">
+
+      <label for="cust-contact">Contact number</label>
+      <input type="tel" id="cust-contact" placeholder="0917 123 4567">
+
+      <label for="cust-email">Email address</label>
+      <input type="email" id="cust-email" placeholder="juan@email.com">
+
+      <div class="status-msg error" id="details-error"></div>
+
+      <div class="form-actions">
+        <button class="secondary" id="cancel-booking-btn">Cancel</button>
+        <button class="primary" id="to-payment-btn">Continue to Payment</button>
+      </div>
+    </div>
+
+    <!-- Step 2: payment + proof upload -->
+    <div id="step-payment" style="display:none;">
+      <div class="payment-panel">
+        <img class="qr" id="gcash-qr-img" src="" alt="GCash QR code">
+        <div><strong id="gcash-name"></strong></div>
+        <div id="gcash-number"></div>
+        <div class="bank-details">
+          Or bank transfer:<br>
+          <span id="bank-name"></span> — <span id="bank-account-name"></span><br>
+          Account #: <span id="bank-account-number"></span>
+        </div>
+      </div>
+
+      <label for="proof-upload">Upload proof of payment (screenshot)</label>
+      <input type="file" id="proof-upload" accept="image/*">
+
+      <div class="status-msg" id="payment-status"></div>
+
+      <div class="form-actions">
+        <button class="secondary" id="back-to-details-btn">Back</button>
+        <button class="primary" id="submit-booking-btn">Submit Booking</button>
+      </div>
+    </div>
+
+    <!-- Step 3: confirmation -->
+    <div id="step-success" style="display:none;">
+      <p class="status-msg success">Booking submitted! Your slot(s) are held as <strong>pending</strong> until we verify your payment. You'll see the status change to "Booked" on the schedule once confirmed.</p>
+      <div class="form-actions">
+        <button class="primary" id="close-success-btn">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
