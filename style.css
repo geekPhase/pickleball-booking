@@ -31,6 +31,17 @@ body {
   background: linear-gradient(135deg, var(--court-blue), var(--court-blue-deep));
   color: var(--line);
   padding: 28px 20px 24px;
+  text-align: center;
+}
+
+.site-logo {
+  display: block;
+  margin: 0 auto 14px;
+  height: 64px;
+  width: auto;
+  border-radius: 12px;
+  background: var(--sand);
+  padding: 6px 14px;
 }
 
 .site-header .brand {
