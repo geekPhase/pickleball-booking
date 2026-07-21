@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
 
 :root {
   --court-blue: #0e4f66;
@@ -12,15 +12,17 @@
   --line: #ffffff;
   --pending-amber: #e2a33b;
   --warn-red: #c1443c;
-  --radius: 10px;
+  --radius: 18px;
   --shadow: 0 8px 24px rgba(9, 51, 68, 0.12);
+  --font-display: 'Baloo 2', sans-serif;
+  --font-body: 'Nunito', sans-serif;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--font-body);
   background: var(--sand);
   color: var(--ink);
 }
@@ -32,15 +34,15 @@ body {
 }
 
 .site-header .brand {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  letter-spacing: 0.5px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4.5vw, 2.7rem);
+  letter-spacing: 0.2px;
   margin: 0;
-  text-transform: uppercase;
 }
 
 .site-header .tagline {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   color: var(--ball);
   margin: 4px 0 0;
   font-size: 0.9rem;
@@ -61,7 +63,7 @@ main {
 }
 
 .controls-bar label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 0.85rem;
   color: var(--ink-soft);
   display: block;
@@ -69,7 +71,7 @@ main {
 }
 
 .controls-bar input[type="date"] {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 1rem;
   padding: 8px 10px;
   border: 2px solid var(--court-blue);
@@ -89,7 +91,7 @@ main {
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 
 .swatch {
-  width: 14px; height: 14px; border-radius: 3px; display: inline-block;
+  width: 14px; height: 14px; border-radius: 5px; display: inline-block;
   border: 1px solid rgba(0,0,0,0.15);
 }
 .swatch.available { background: var(--ball); }
@@ -113,7 +115,7 @@ main {
 }
 
 .grid-head {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-weight: 600;
   font-size: 0.8rem;
   color: var(--court-blue);
@@ -123,7 +125,7 @@ main {
 }
 
 .time-label {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 0.82rem;
   color: var(--ink);
   display: flex;
@@ -187,7 +189,7 @@ main {
 .cell-note {
   position: absolute;
   bottom: 2px; left: 0; right: 0;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 0.6rem;
   text-align: center;
   color: white;
@@ -212,7 +214,7 @@ main {
 }
 
 .selection-bar .summary {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 0.9rem;
 }
 
@@ -227,7 +229,7 @@ button.primary {
   border-radius: var(--radius);
   cursor: pointer;
   font-size: 0.95rem;
-  font-family: 'Work Sans', sans-serif;
+  font-family: var(--font-body);
 }
 button.primary:hover { filter: brightness(0.95); }
 button.primary:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -247,7 +249,7 @@ button.danger {
   color: white;
   border: none;
   padding: 8px 14px;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: 600;
 }
@@ -275,16 +277,16 @@ button.danger {
 }
 
 .modal h2 {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   color: var(--court-blue);
   margin-top: 0;
 }
 
 .modal .booking-summary {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   background: #eef5f7;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 10px 14px;
   font-size: 0.85rem;
   margin-bottom: 16px;
@@ -305,7 +307,7 @@ button.danger {
   width: 100%;
   padding: 10px 12px;
   border: 1.5px solid #ccd6da;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 0.95rem;
   font-family: inherit;
 }
@@ -328,13 +330,13 @@ button.danger {
   width: 160px;
   height: 160px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid #ccd6da;
   margin-bottom: 10px;
 }
 
 .payment-panel .bank-details {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 0.82rem;
   color: var(--ink-soft);
   margin-top: 10px;
@@ -365,13 +367,13 @@ button.danger {
 }
 
 .admin-table th {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   background: var(--court-blue);
   color: white;
 }
 
 .status-pill {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-body); font-weight: 700;
   font-size: 0.72rem;
   padding: 3px 8px;
   border-radius: 20px;
@@ -384,8 +386,8 @@ button.danger {
 
 .admin-actions { display: flex; gap: 6px; flex-wrap: wrap; }
 
-.admin-actions button.confirm { background: var(--kitchen-green); color: white; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
-.admin-actions button.cancel { background: var(--warn-red); color: white; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.admin-actions button.confirm { background: var(--kitchen-green); color: white; border: none; padding: 6px 10px; border-radius: 10px; cursor: pointer; }
+.admin-actions button.cancel { background: var(--warn-red); color: white; border: none; padding: 6px 10px; border-radius: 10px; cursor: pointer; }
 
 .login-gate {
   max-width: 340px;
